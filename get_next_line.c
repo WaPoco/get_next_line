@@ -6,7 +6,7 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 15:21:20 by vpogorel          #+#    #+#             */
-/*   Updated: 2024/12/06 22:38:43 by vpogorel         ###   ########.fr       */
+/*   Updated: 2024/12/07 19:15:04 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,41 +16,41 @@ char	*get_next_line(int fd)
 {
 	char 	*buffer;
 	char	*line;
-	size_t	bytesRead;
-	size_t	temp;
+	static size_t	bytesRead;
 	size_t	i;
-	size_t	k;
 
 	i = 0;
-	k = 0;
 	buffer = malloc(BUFFER_SIZE);
+	line = (char *)malloc(1);
+	line[0] = '\0';
 	if (!buffer)
-		return NULL;
-	bytesRead = read(fd, buffer, BUFFER_SIZE);
-	temp = 0;
-	while (bytesRead != temp)
+	{
+		free(buffer);
+		free(line);
+		return (NULL);
+	}
+	bytesRead = -1;
+	while (bytesRead != 0)
 	{
 		i = 0;
-		while (i < BUFFER_SIZE)
+		bytesRead = read(fd, buffer, BUFFER_SIZE);
+		if ((int)bytesRead == - 1)
 		{
-			if (buffer[i] == '\n')
-				break;
+			free(buffer);
+			free(line);
+			return (NULL);
+		}
+		while (i < bytesRead)
+		{
+			if (buffer[i] == '\0' || buffer[i] == '\n')
+				return (new_line(line, buffer, i));
 			i++;
 		}
-		k += i;
-		if (buffer[i] == '\n')
-			break;
-		temp = bytesRead;
-		bytesRead += read(fd, buffer, BUFFER_SIZE);
-		if (bytesRead == temp - 1)
-			break;
+		line = new_line(line, buffer, i);
 	}
 	free(buffer);
-	line = malloc(k + 1);
-	read(fd, line, k);
-	line[k] = '\0';
-	return (buffer);
-}
+	return (line);
+} 
 
 int	main(void)
 {
@@ -58,7 +58,7 @@ int	main(void)
 	char *line;
 
 	line = get_next_line(fd);
-	write(1, line, 20);
+	printf("%s \n", line);
 	close(fd);
 	return (1);
 }
