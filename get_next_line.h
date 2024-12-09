@@ -6,7 +6,7 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 15:21:24 by vpogorel          #+#    #+#             */
-/*   Updated: 2024/12/07 16:34:05 by vpogorel         ###   ########.fr       */
+/*   Updated: 2024/12/09 21:19:19 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@
 #include <stdlib.h>
 
 char	*get_next_line(int fd);
-char	*new_line(char *line, char *buffer, size_t i);
+char	*new_line(char *line, char *buffer, int bytesRead, size_t i);
 
 #endif 

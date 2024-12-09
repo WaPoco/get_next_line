@@ -6,7 +6,7 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 15:21:27 by vpogorel          #+#    #+#             */
-/*   Updated: 2024/12/07 19:09:34 by vpogorel         ###   ########.fr       */
+/*   Updated: 2024/12/09 22:18:00 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,22 @@ static size_t	ft_strlen(char *s)
 	size_t	i;
 
 	i = 0;
+	if (s == NULL)
+		return (0);
 	while (s[i])
 		i++;
 	return (i);
 }
 
-char	*new_line(char *line, char *buffer, size_t i)
+char	*new_line(char *line, char *buffer, int bytesRead, size_t i)
 {
 	size_t	k;
-	size_t	len_line;
+	static size_t	len_line;
 	char	*new_line;
 
 	k = 0;
+	if (bytesRead == 0 && line == NULL)
+		return (NULL);
 	len_line = ft_strlen(line);
 	new_line = malloc(i + len_line + 1);
 	while (k < len_line)
