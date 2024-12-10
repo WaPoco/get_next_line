@@ -6,19 +6,19 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 15:21:24 by vpogorel          #+#    #+#             */
-/*   Updated: 2024/12/09 21:19:19 by vpogorel         ###   ########.fr       */
+/*   Updated: 2024/12/10 22:20:12 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-#include <stdio.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdlib.h>
+# include <stdio.h>
+# include <fcntl.h>
+# include <unistd.h>
+# include <stdlib.h>
 
 char	*get_next_line(int fd);
-char	*new_line(char *line, char *buffer, int bytesRead, size_t i);
+char	*new_line(char *line, char c);
 
 #endif 
