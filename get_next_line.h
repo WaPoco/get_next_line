@@ -6,7 +6,7 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 15:21:24 by vpogorel          #+#    #+#             */
-/*   Updated: 2024/12/10 22:20:12 by vpogorel         ###   ########.fr       */
+/*   Updated: 2024/12/16 19:32:49 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@
 
 char	*get_next_line(int fd);
 char	*new_line(char *line, char c);
+size_t	ft_strlen(char *s);
 
 #endif 
