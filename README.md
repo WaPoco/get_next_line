@@ -10,13 +10,14 @@ The function reads one line per call and is designed to work correctly across mu
 - handles files and the standard input
 - 
 ## 📁 File Structure
--get_next_line.c
+[**get_next_line.c**](get_next_line.c)
 
  Contains the main logic of the function, reading from the file descriptor and returning lines one at a time.
 
--get_next_line_utilis.c
+[**get_next_line_utilis.c**](get_next_line_utilis.c)
 
   Contains all the necessary helper functions (string operations, memory handling, etc.).
--get_next_line.h
+[**get_next_line.h**](get_next_line.h)
 
   Header file that declares the function prototype and any required includes/macros.
+## Functions
