@@ -6,12 +6,15 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 15:21:24 by vpogorel          #+#    #+#             */
-/*   Updated: 2024/12/16 19:32:49 by vpogorel         ###   ########.fr       */
+/*   Updated: 2025/08/01 14:56:32 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 41
+# endif
 
 # include <stdio.h>
 # include <fcntl.h>
@@ -21,5 +24,8 @@
 char	*get_next_line(int fd);
 char	*new_line(char *line, char c);
 size_t	ft_strlen(char *s);
+char	*buffer_check(char *buffer, char *line);
+void	change_buffer(char *buffer, size_t start);
+char	*free_mem(char *line, int bytesRead);
 
 #endif 

@@ -6,59 +6,11 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 15:21:20 by vpogorel          #+#    #+#             */
-/*   Updated: 2024/12/16 22:22:48 by vpogorel         ###   ########.fr       */
+/*   Updated: 2025/08/01 14:56:39 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-static void	change_buffer(char *buffer, size_t start)
-{
-	size_t	i;
-
-	i = 0;
-	while (start + i < BUFFER_SIZE && start != 0)
-	{
-		buffer[i] = buffer[start + i];
-		i++;
-	}
-	while (i < BUFFER_SIZE)
-		buffer[i++] = '\0';
-}
-
-static char	*buffer_check(char *buffer, char *line)
-{
-	size_t	i;
-	size_t	max;
-	size_t	index_end;
-
-	max = ft_strlen(buffer);
-	i = 0;
-	if (max == 0)
-		return (line);
-	index_end = BUFFER_SIZE - 1;
-	while (i < max)
-	{
-		if (buffer[i] == '\n')
-		{
-			index_end = i;
-			break ;
-		}
-		i++;
-	}
-	i = 0;
-	while (i < index_end + 1)
-		line = new_line(line, buffer[i++]);
-	change_buffer(buffer, index_end + 1);
-	return (line);
-}
-
-static char	*free_mem(char *line, int bytesRead)
-{
-	if (bytesRead == -1)
-		free(line);
-	return (NULL);
-}
 
 static char	*create_new_line(int fd, char *buffer)
 {
@@ -89,11 +41,11 @@ char	*get_next_line(int fd)
 {
 	static char	buffer[BUFFER_SIZE];
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd,0,0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 		return (NULL);
 	return (create_new_line(fd, buffer));
 }
-/*
+
 int	main(void)
 {
 	int fd = open("test", O_RDONLY);
@@ -110,4 +62,4 @@ int	main(void)
 	close(fd);
 	return (1);
 }
-*/
+
