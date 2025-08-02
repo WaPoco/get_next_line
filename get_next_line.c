@@ -6,19 +6,22 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 15:21:20 by vpogorel          #+#    #+#             */
-/*   Updated: 2025/08/01 14:56:39 by vpogorel         ###   ########.fr       */
+/*   Updated: 2025/08/02 14:06:24 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char	*create_new_line(int fd, char *buffer)
+char	*get_next_line(int fd)
 {
+	static char	buffer[BUFFER_SIZE];
 	char		*line;
 	size_t		bytesread;
 	size_t		temp;
 	size_t		len_line;
 
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+		return (NULL);
 	temp = -1;
 	line = NULL;
 	bytesread = 0;
@@ -35,15 +38,6 @@ static char	*create_new_line(int fd, char *buffer)
 			return (free_mem(line, (int)bytesread));
 	}
 	return (line);
-}
-
-char	*get_next_line(int fd)
-{
-	static char	buffer[BUFFER_SIZE];
-
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
-		return (NULL);
-	return (create_new_line(fd, buffer));
 }
 
 int	main(void)
