@@ -25,16 +25,28 @@ The function reads one line per call and preserves the input between calls using
   Header file that declares the function prototype and any required includes/macros.
 ## Functions
 ```get_next_line()```
-Checks if the file descriptor is valid and links to the function create_new_line().
-Arguments:
-int fd
 
-Return:
-line
+Validates the file descriptor and returns the next full (including a new line if it occurs).
 
-```create_new_line(int fd, char *buffer)```
+Parameters:
 
-Arguments:
-int fd, char *buffer
-Return:
+- ```int fd```: File descriptor to read from file
 
+Returns:
+- NULL if error or EOF
+- a string line with the ```\n```
+- 
+
+## 🔧 Helper Functions Overview
+
+char *buffer_check(char *buffer, char *line);
+Appends buffer content to the current line and shifts remaining content for future calls.
+
+size_t ft_strlen(const char *s);
+Custom implementation of strlen() to calculate string length.
+
+char *ft_strjoin(char *s1, char *s2);
+Concatenates two strings into a new one. Frees the first string to manage memory safely.
+
+char *free_mem(char *str, int code);
+Handles memory freeing and error signaling (e.g., freeing line on error and returning NULL).
