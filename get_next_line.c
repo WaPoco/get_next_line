@@ -6,7 +6,7 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 15:21:20 by vpogorel          #+#    #+#             */
-/*   Updated: 2025/08/02 14:06:24 by vpogorel         ###   ########.fr       */
+/*   Updated: 2025/08/02 14:55:11 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*get_next_line(int fd)
 		temp = bytesread;
 		line = buffer_check(buffer, line);
 		len_line = ft_strlen(line);
-		if (line != NULL && line[len_line - 1] == '\n')
+		if (line && len_line > 0 && line[len_line - 1] == '\n')
 			return (line);
 		bytesread += read(fd, buffer, BUFFER_SIZE);
 		if (bytesread < temp)
