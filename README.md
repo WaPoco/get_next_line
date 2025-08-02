@@ -26,7 +26,7 @@ The function reads one line per call and preserves the input between calls using
 ## Functions
 ```get_next_line()```
 
-Validates the file descriptor and returns the next full (including a new line if it occurs).
+Validates a file descriptor and returns the next full line (including a new line if it occurs).
 
 Parameters:
 
@@ -34,14 +34,46 @@ Parameters:
 
 Returns:
 - NULL if error or EOF
-- a string line with the ```\n```
-- 
+- a string and maybe with the ```\n```
 
 ## 🔧 Helper Functions Overview
 
-char *buffer_check(char *buffer, char *line);
-Appends buffer content to the current line and shifts remaining content for future calls.
+```buffer_check()```
 
+Determines the end of a line, appends buffer content to the current line with the function ```new_line()``` and shifts remaining content with the function ```buffer_change()``` for future calls.
+
+Parameters:
+
+- ```int fd```: File descriptor to read from file
+
+Returns:
+- NULL if error or EOF
+- a string and maybe with the ```\n```
+---
+```new_line()```
+
+Appends one element from the buffer content to the current line.
+
+Parameters:
+
+- ```char *line```: old line
+- ```char c```: new char
+
+Returns:
+- line
+---
+```change_buffer()```
+
+Shifts remaining content with the function ```buffer_change()``` for future calls.
+
+Parameters:
+
+- ```char *buffer```: old line
+- ```size_t start```: new char
+
+Returns:
+- line
+---
 size_t ft_strlen(const char *s);
 Custom implementation of strlen() to calculate string length.
 
