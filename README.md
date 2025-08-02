@@ -73,12 +73,21 @@ Parameters:
 
 Returns:
 - line
----
-size_t ft_strlen(const char *s);
+
+## Helperfunctions
+
+```ft_strlen()```
+
 Custom implementation of strlen() to calculate string length.
 
-char *ft_strjoin(char *s1, char *s2);
+---
+
+```ft_strjoin()```
+
 Concatenates two strings into a new one. Frees the first string to manage memory safely.
 
-char *free_mem(char *str, int code);
+---
+
+```free_mem()```
+
 Handles memory freeing and error signaling (e.g., freeing line on error and returning NULL).
