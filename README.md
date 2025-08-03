@@ -86,6 +86,8 @@ Returns:
 | `ft_strdup`      | String Utility | `const char *s`                                            | Duplicate of `s` in new memory          |
 | `ft_strchr`      | String Utility | `const char *s`, `int c`                                   | Pointer to `c` in `s` or `NULL`         |
 
+##💡 Example Usage
+...
 ## Testing
 I tested the fet_next_line funtion with different sizes.
 -different BUFFER_SIZE values
