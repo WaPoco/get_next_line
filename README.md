@@ -23,8 +23,8 @@ The function reads one line per call and preserves the input between calls using
 [**get_next_line.h**](get_next_line.h)
 
   Header file that declares the function prototype and any required includes/macros.
-## Main Functions
-```get_next_line()```
+## Main Function
+### ```get_next_line()```
 
 Validates a file descriptor and returns the next full line (including a new line if it occurs).
 
@@ -38,7 +38,7 @@ Returns:
 
 ## 🔧 Helper Functions
 
-```buffer_check()```
+### ```buffer_check()```
 
 Determines the end of a line, appends buffer content to the current line with the function ```new_line()``` and shifts remaining content with the function ```buffer_change()``` for future calls.
 
@@ -50,7 +50,7 @@ Returns:
 - NULL if error or EOF
 - a string and maybe with the ```\n```
 ---
-```new_line()```
+### ```new_line()```
 
 Appends one element from the buffer content to the current line.
 
@@ -62,7 +62,7 @@ Parameters:
 Returns:
 - line
 ---
-```change_buffer()```
+### ```change_buffer()```
 
 Shifts remaining content with the function ```buffer_change()``` for future calls.
 
@@ -74,20 +74,18 @@ Parameters:
 Returns:
 - line
 
-## Helperfunctions
-
-```ft_strlen()```
-
-Custom implementation of strlen() to calculate string length.
-
 ---
+### Further Functions
 
-```ft_strjoin()```
 
-Concatenates two strings into a new one. Frees the first string to manage memory safely.
+| Function Name    | Category              | Parameters                                                 | Return                                  |
+|------------------|------------------------|------------------------------------------------------------|-----------------------------------------|
+| `ft_strjoin`     | Line Construction      | `char *s1`, `char *s2`                                     | New string (`s1 + s2`) in allocated memory |
+| `ft_strlen`      | String Utility         | `const char *s`                                            | Length of the string (`size_t`)         |
+| `free_mem`       | Memory/Error Handling  | `char *line`, `int status`                                 | Always returns `NULL` (after free)      |
+| `ft_strdup`      | String Utility | `const char *s`                                            | Duplicate of `s` in new memory          |
+| `ft_strchr`      | String Utility | `const char *s`, `int c`                                   | Pointer to `c` in `s` or `NULL`         |
 
----
-
-```free_mem()```
-
-Handles memory freeing and error signaling (e.g., freeing line on error and returning NULL).
+## Testing
+I tested the fet_next_line funtion with different sizes.
+-different BUFFER_SIZE values
