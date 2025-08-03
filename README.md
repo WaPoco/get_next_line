@@ -23,7 +23,8 @@ The function reads one line per call and preserves the input between calls using
 [**get_next_line.h**](get_next_line.h)
 
   Header file that declares the function prototype and any required includes/macros.
-## Main Function
+## 🔧 Main Function
+
 ### ```get_next_line()```
 
 Validates a file descriptor and returns the next full line (including a new line if it occurs).
@@ -36,7 +37,7 @@ Returns:
 - NULL if error or EOF
 - a string and maybe with the ```\n```
 
-## 🔧 Helper Functions
+##  🔧🔧 Helper Functions
 
 ### ```buffer_check()```
 
@@ -85,9 +86,9 @@ Returns:
 | `free_mem`       | Memory/Error Handling  | `char *line`, `int status`                                 | Always returns `NULL` (after free)      |
 | `ft_strdup`      | String Utility | `const char *s`                                            | Duplicate of `s` in new memory          |
 | `ft_strchr`      | String Utility | `const char *s`, `int c`                                   | Pointer to `c` in `s` or `NULL`         |
-
-##💡 Example Usage
-...
+---
+## 💡 Example Usage
+How can I use get_next_line ???
 ## Testing
 I tested the fet_next_line funtion with different sizes.
 -different BUFFER_SIZE values
