@@ -23,7 +23,7 @@ The function reads one line per call and preserves the input between calls using
 [**get_next_line.h**](get_next_line.h)
 
   Header file that declares the function prototype and any required includes/macros.
-## Functions
+## Main Functions
 ```get_next_line()```
 
 Validates a file descriptor and returns the next full line (including a new line if it occurs).
@@ -36,7 +36,7 @@ Returns:
 - NULL if error or EOF
 - a string and maybe with the ```\n```
 
-## 🔧 Helper Functions Overview
+## 🔧 Helper Functions
 
 ```buffer_check()```
 
