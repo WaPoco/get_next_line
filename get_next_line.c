@@ -6,7 +6,7 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 15:21:20 by vpogorel          #+#    #+#             */
-/*   Updated: 2025/08/02 14:55:11 by vpogorel         ###   ########.fr       */
+/*   Updated: 2025/08/04 15:36:50 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,5 @@ char	*get_next_line(int fd)
 			return (free_mem(line, (int)bytesread));
 	}
 	return (line);
-}
-
-int	main(void)
-{
-	int fd = open("test", O_RDONLY);
-	char *line;
-	line = get_next_line(fd);
-	printf("1.line: %s", line);
-	free(line);
-	line = get_next_line(fd);
-	printf("2.line: %s", line);
-	free(line);
-	line = get_next_line(fd);
-	printf("3.line: %s", line);
-	free(line);
-	close(fd);
-	return (1);
 }
 
