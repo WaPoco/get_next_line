@@ -122,6 +122,6 @@ int	main(void)
 	return (1);
 }
 ```
-## Testing
+## 🔎 Testing
 I tested the fet_next_line funtion with different sizes.
 -different BUFFER_SIZE values
