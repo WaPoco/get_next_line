@@ -87,7 +87,7 @@ Returns:
 | Function Name    | Category              | Parameters                                                 | Return                                  |
 |------------------|------------------------|------------------------------------------------------------|-----------------------------------------|
 | `ft_strlen`      | String Utility         | `const char *s`                                            | Length of the string (`size_t`)         |
-| `free_mem`       | Memory/Error Handling  | `char *line`, `int status`                                 | Always returns `NULL` (after free)      |
+| `free_mem`       | Memory/Error Handling  | `char *line`, `int bytesRead`                                 | Always returns `NULL` (after free line)      |
 ---
 ## 💡 Example Usage
 How can I use get_next_line ???
