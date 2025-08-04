@@ -34,8 +34,10 @@ Parameters:
 - ```int fd```: File descriptor to read from file
 
 Returns:
-- NULL if error or EOF
-- a string and maybe with the ```\n```
+- `NULL` if:
+  - End-of-file is reached
+  - An error occurs (e.g., invalid `fd`, `read` failure, or memory allocation error)
+- a dynamically allocated string containing the next line (including `\n` if it exists)
 
 ##  🔧🔧 Helper Functions
 
@@ -45,11 +47,12 @@ Determines the end of a line, appends buffer content to the current line with th
 
 Parameters:
 
-- ```int fd```: File descriptor to read from file
+- ```char *buffer```: Buffer containing the input from fd
+- ```char *line```: A dynamically allocated string containing the next line (including `\n` if it exists)
 
 Returns:
-- NULL if error or EOF
-- a string and maybe with the ```\n```
+- line with ```\n```
+  
 ---
 ### ```new_line()```
 
@@ -57,23 +60,25 @@ Appends one element from the buffer content to the current line.
 
 Parameters:
 
-- ```char *line```: old line
-- ```char c```: new char
+- ```char *line```: the next line
+- ```char c```: one element from the buffer
 
 Returns:
-- line
+- line with one char from buffer
+
 ---
+
 ### ```change_buffer()```
 
-Shifts remaining content with the function ```buffer_change()``` for future calls.
+Shifts remaining content for future calls.
 
 Parameters:
 
-- ```char *buffer```: old line
-- ```size_t start```: new char
+- ```char *buffer```: old buffer
+- ```size_t start```: starting index of new buffer from old buffer
 
 Returns:
-- line
+- shifted buffer
 
 ---
 ### Further Functions
@@ -81,11 +86,8 @@ Returns:
 
 | Function Name    | Category              | Parameters                                                 | Return                                  |
 |------------------|------------------------|------------------------------------------------------------|-----------------------------------------|
-| `ft_strjoin`     | Line Construction      | `char *s1`, `char *s2`                                     | New string (`s1 + s2`) in allocated memory |
 | `ft_strlen`      | String Utility         | `const char *s`                                            | Length of the string (`size_t`)         |
 | `free_mem`       | Memory/Error Handling  | `char *line`, `int status`                                 | Always returns `NULL` (after free)      |
-| `ft_strdup`      | String Utility | `const char *s`                                            | Duplicate of `s` in new memory          |
-| `ft_strchr`      | String Utility | `const char *s`, `int c`                                   | Pointer to `c` in `s` or `NULL`         |
 ---
 ## 💡 Example Usage
 How can I use get_next_line ???
