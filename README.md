@@ -123,5 +123,6 @@ int	main(void)
 }
 ```
 ## 🔎 Testing
-I tested the fet_next_line funtion with different sizes.
 -different BUFFER_SIZE values
+-no filedescriptor
+-
