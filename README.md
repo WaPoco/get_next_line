@@ -90,7 +90,29 @@ Returns:
 | `free_mem`       | Memory/Error Handling  | `char *line`, `int bytesRead`                              | Always returns `NULL` (after free line) |
 ---
 ## 💡 Example Usage
-How can I use get_next_line ???
+You can use get_next_line in your source file.
+```c
+#include <stdio.h>
+#include <fcntl.h>
+#include "get_next_line.h"
+
+int	main(void)
+{
+	int fd = open("test", O_RDONLY);
+	char *line;
+	line = get_next_line(fd);
+	printf("1.line: %s", line);
+	free(line);
+	line = get_next_line(fd);
+	printf("2.line: %s", line);
+	free(line);
+	line = get_next_line(fd);
+	printf("3.line: %s", line);
+	free(line);
+	close(fd);
+	return (1);
+}
+```
 ## Testing
 I tested the fet_next_line funtion with different sizes.
 -different BUFFER_SIZE values
