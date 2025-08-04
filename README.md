@@ -80,8 +80,7 @@ Parameters:
 Returns:
 - shifted buffer
 
----
-### Further Functions
+### Other Functions
 
 
 | Function Name    | Category              | Parameters                                                 | Return                                  |
@@ -89,6 +88,16 @@ Returns:
 | `ft_strlen`      | String Utility         | `const char *s`                                            | Length of the string (`size_t`)         |
 | `free_mem`       | Memory/Error Handling  | `char *line`, `int bytesRead`                              | Always returns `NULL` (after free line) |
 ---
+## 🛠️ Compilation
+Compile the source files:
+```bash
+cc *.c -o get_next_line
+```
+Then you can execute like:
+```bash
+./get_next_line
+
+```
 ## 💡 Example Usage
 You can use get_next_line in your source file.
 ```c
